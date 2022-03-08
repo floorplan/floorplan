@@ -7,13 +7,14 @@ let app, auth, db;
 
 if (!getApps().length) {
   const firebaseConfig = {
-    apiKey: "AIzaSyA34ZWGXJfZlR6u8zsfK5nbsHpigr_aM58",
-    authDomain: "codesagas.firebaseapp.com",
-    projectId: "codesagas",
-    storageBucket: "codesagas.appspot.com",
-    messagingSenderId: "434743911554",
-    appId: "1:434743911554:web:4c4b74f039bb5f2a98809b",
-    measurementId: "G-RFN47JK38N",
+    // TODO: Make sure these are your values
+    apiKey: "AIzaSyDlEzcJeNnGD1L3TmJGbylsFQd7dmmaA8g",
+    authDomain: "floorplan-codesagas.firebaseapp.com",
+    projectId: "floorplan-codesagas",
+    storageBucket: "floorplan-codesagas.appspot.com",
+    messagingSenderId: "1074198964881",
+    appId: "1:1074198964881:web:742e3a37f0307080f42d30",
+    measurementId: "G-FD3XK663C0"
   };
   app = initializeApp(firebaseConfig);
   auth = getAuth();

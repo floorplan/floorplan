@@ -1,52 +1,28 @@
-# Welcome to Remix!
+# Welcome to Floorplan!
 
-- [Remix Docs](https://remix.run/docs)
+## Why? 
+> The app framework that no one asked for but that we all deserve. 
+  - not Batman
 
-## Netlify Setup
+We are going to say some more stuff here eventually.
 
-1. Install the [Netlify CLI](https://www.netlify.com/products/dev/):
+## Getting Started
 
+### Get code setup locally
+Open up your favorite terminal and got to where you put all of those projects that never get finished.
+Then run:
 ```sh
-npm i -g netlify-cli
+git clone git@github.com:floorplan/floorplan.git
+```
+Then change directories to that new folder and install all the dependencies
+> All your dependencies are belong to us.
+```sh
+cd floorplan
+npm i
 ```
 
-If you have previously installed the Netlify CLI, you should update it to the latest version:
+### Get firebase
+Now most dev environmenst would be ready to go but first we need to setup a firebase console app so we can do all the things.
 
-```sh
-npm i -g netlify-cli@latest
-```
+> TODO: add url to youtube video that we are making right now.
 
-2. Sign up and log in to Netlify:
-
-```sh
-netlify login
-```
-
-3. Create a new site:
-
-```sh
-netlify init
-```
-
-## Development
-
-The Netlify CLI starts your app in development mode, rebuilding assets on file changes.
-
-```sh
-npm run dev
-```
-
-Open up [http://localhost:3000](http://localhost:3000), and you should be ready to go!
-
-## Deployment
-
-There are two ways to deploy your app to Netlify, you can either link your app to your git repo and have it auto deploy changes to Netlify, or you can deploy your app manually. If you've followed the setup instructions already, all you need to do is run this:
-
-```sh
-$ npm run build
-# preview deployment
-$ netlify deploy
-
-# production deployment
-$ netlify deploy --prod
-```
