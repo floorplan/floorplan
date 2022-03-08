@@ -38,7 +38,6 @@ export const CodeBlock = ({ children }) => {
               <LineNo>{i + 1}</LineNo>
               <LineContent>
                 {line.map((token, key) => {
-                  console.log(token, getTokenProps({ token, key }));
                   const { children, ...props } = getTokenProps({ token, key });
                   const sanitizedChildren = children.replace(/\s/g, "&nbsp;");
                   return (

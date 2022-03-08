@@ -9,7 +9,7 @@
 
 [functions]
   node_bundler = "esbuild"
-  external_node_modules = ["react", "@remix-run/react", "keyv"]
+  external_node_modules = ["react", "@remix-run/react", "keyv", "esbuild"]
 
 [[redirects]]
   from = "/*"
