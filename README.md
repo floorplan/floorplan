@@ -63,6 +63,7 @@ npm run setup:firebase
 ### Now we can start our engines
 
 so go to a terminal you are indiferrent to and run
+> We might need to login into firebase cls `npm run firebase login`
 
 ```sh
 npm run firebase:dev

@@ -16,7 +16,7 @@ import { addAppUser } from "~/db/appUsers/appUsers.client";
 
 export const meta: MetaFunction = () => {
   return {
-    title: "Code Sagas | Sign In",
+    title: "Floor Plan | Sign In",
     description: "Sign in to start your own code journey!",
   };
 };
