@@ -88,3 +88,6 @@ oh then you can watch this video that we did right now to learn how some of the 
 ### Now let us delpoy
 
 first sign into netlify with your github account and link this repo
+
+
+after delpoy you can make sure to add the url and update the db to have looser rules.

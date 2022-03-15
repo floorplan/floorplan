@@ -7,7 +7,8 @@ export const COLORS = {
   INFO: "#00E7FF",
   SUCCESS: "#00FF7E",
   BACKGROUND: {
-    DEFAULT: "#0F0F15",
+    // DEFAULT: "#0F0F15",
+    DEFAULT: "#3057E1",
     PAPER: "#070319",
   },
 };
