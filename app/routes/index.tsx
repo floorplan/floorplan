@@ -33,7 +33,7 @@ export default function Index() {
       <FloorPlanCard
         title={"Remix with Firebase on Netlify"}
         description={
-          "jfla jdlk jalskdjf lkasdf jalsdfk ajskd laskgoaiuernf  asdf ;aire a;seih faslie jlakfj"
+          "A React app written with Remix and Firebase deployed on Netlify. It uses Typescript and has all the building blocks to get your app off the ground."
         }
         cost={"FREE"}
         popularity={{
