@@ -91,3 +91,5 @@ first sign into netlify with your github account and link this repo
 
 
 after delpoy you can make sure to add the url and update the db to have looser rules.
+
+on netlify dont forget to add the environment variables hahaha
