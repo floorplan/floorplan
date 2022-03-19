@@ -4,6 +4,7 @@ import Toolbar from "@mui/material/Toolbar";
 import AuthControls from "~/components/AuthControls";
 import Typography from "@mui/material/Typography";
 import { Link } from "remix";
+import { Stack } from "@mui/material";
 
 export function AppBar() {
   return (
@@ -16,17 +17,30 @@ export function AppBar() {
           }}
         >
           <Link to="/" style={{ textDecoration: "none" }}>
-            <Typography
-              variant="h4"
-              noWrap
-              sx={(theme) => ({
-                background: `linear-gradient(to right, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
-                backgroundClip: "text",
-                textFillColor: "transparent",
-              })}
-            >
-              Floor Plan
-            </Typography>
+            <Stack direction={"row"}>
+              <Typography
+                variant="h4"
+                noWrap
+                sx={(theme) => ({
+                  background: `linear-gradient(to right, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
+                  backgroundClip: "text",
+                  textFillColor: "transparent",
+                })}
+              >
+                Floor Plan
+              </Typography>
+              <Typography
+                variant="h6"
+                noWrap
+                color={"secondary"}
+                sx={(theme) => ({
+                  fontSize: "14px",
+                })}
+              >
+                {" "}
+                [BETA]
+              </Typography>
+            </Stack>
           </Link>
 
           <AuthControls />

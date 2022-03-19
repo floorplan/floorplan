@@ -28,7 +28,7 @@ export function AuthProvider({
   }, [userProp]);
 
   const { pathname } = useLocation();
-  const redirectTo = pathname.includes("/sign/") ? "/dashboard" : pathname;
+  const redirectTo = pathname.includes("/sign/") ? "/floor-plans" : pathname;
 
   function sendUserToken() {
     if (!userTokenForm.current) return;
