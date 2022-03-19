@@ -46,7 +46,10 @@ export const action: ActionFunction = async ({ request }) => {
   const githubOwner = formData.get("githubOwner");
   const githubRepo = formData.get("githubRepo");
   const setupTime = formData.get("setupTime");
-  const tags = String(formData.get("tags"))?.split(",").map(word => word.trim()) || [];
+  const tags =
+    String(formData.get("tags"))
+      ?.split(",")
+      .map((word) => word.trim()) || [];
 
   const errors: PlanError = {};
   if (!owner) errors.owner = true;
@@ -87,5 +90,5 @@ export const action: ActionFunction = async ({ request }) => {
 export default function NewPlan() {
   const { userId } = useLoaderData<LoaderData>();
   const errors = useActionData();
-  return <EditFloorPlan errors={errors} owner={userId} />;
+  return <EditFloorPlan isCreate errors={errors} owner={userId} />;
 }

@@ -1,6 +1,8 @@
 import { getApps, initializeApp } from "firebase/app";
 import { connectAuthEmulator, getAuth } from "firebase/auth";
+import { getAnalytics, logEvent } from "firebase/analytics";
 
+const analytics = getAnalytics();
 import { connectFirestoreEmulator, getFirestore } from "firebase/firestore";
 
 let app, auth, db;
@@ -14,7 +16,7 @@ if (!getApps().length) {
     storageBucket: "floorplan-codesagas.appspot.com",
     messagingSenderId: "1074198964881",
     appId: "1:1074198964881:web:742e3a37f0307080f42d30",
-    measurementId: "G-FD3XK663C0"
+    measurementId: "G-FD3XK663C0",
   };
   app = initializeApp(firebaseConfig);
   auth = getAuth();
@@ -25,4 +27,4 @@ if (!getApps().length) {
   }
 }
 
-export { app, auth, db, getAuth, getFirestore };
+export { app, auth, db, analytics, getAuth, getFirestore, getAnalytics, logEvent };

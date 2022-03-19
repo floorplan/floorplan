@@ -4,7 +4,11 @@ import invariant from "tiny-invariant";
 import { requireUserId } from "~/utils/session.server";
 import { getAppUser } from "~/db/appUsers/appUsers.server";
 import { EditFloorPlan } from "~/components/EditFloorPlan";
-import { FloorPlanWithId, getFloorPlan, setFloorPlan } from "~/db/floorPlans.server";
+import {
+  FloorPlanWithId,
+  getFloorPlan,
+  setFloorPlan,
+} from "~/db/floorPlans.server";
 
 interface LoaderData extends FloorPlanWithId {
   userId: string;
@@ -47,7 +51,10 @@ export const action: ActionFunction = async ({ request, params }) => {
   const githubOwner = formData.get("githubOwner");
   const githubRepo = formData.get("githubRepo");
   const setupTime = formData.get("setupTime");
-  const tags = String(formData.get("tags"))?.split(",").map(word => word.trim()) || [];
+  const tags =
+    String(formData.get("tags"))
+      ?.split(",")
+      .map((word) => word.trim()) || [];
 
   const errors: PlanError = {};
   if (!owner) errors.owner = true;
@@ -72,7 +79,7 @@ export const action: ActionFunction = async ({ request, params }) => {
   invariant(typeof setupTime === "string");
   invariant(typeof tags === "object");
 
-  await setFloorPlan(floorPlanId,{
+  await setFloorPlan(floorPlanId, {
     owner,
     title,
     description,
@@ -100,6 +107,7 @@ export default function EditPlan() {
   const errors = useActionData();
   return (
     <EditFloorPlan
+      isCreate={false}
       errors={errors}
       owner={userId}
       title={title}

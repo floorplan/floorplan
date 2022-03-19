@@ -10,8 +10,22 @@ import {
   FormControl,
   FormHelperText,
 } from "@mui/material";
+import { logEvent, analytics } from "~/firebase/firebase";
 
+interface Props {
+  isCreate: boolean;
+  errors;
+  owner: string;
+  title?: string;
+  description?: string;
+  cost?: string;
+  githubOwner?: string;
+  githubRepo?: string;
+  setupTime?: string;
+  tags?: string;
+}
 export function EditFloorPlan({
+  isCreate,
   errors,
   owner,
   title = "",
@@ -21,10 +35,15 @@ export function EditFloorPlan({
   githubRepo = "",
   setupTime = "",
   tags = "",
-}) {
+}: Props) {
   return (
     <Stack spacing={2} sx={{ p: 4 }}>
-      <Form method="post">
+      <Form
+        method="post"
+        onSubmit={() => {
+          logEvent(analytics, isCreate ? "create" : "edit");
+        }}
+      >
         <input type="hidden" name="owner" value={owner} />
 
         <Stack
@@ -42,7 +61,9 @@ export function EditFloorPlan({
               id="githubOwner"
               label="Github Owner"
               helperText={
-                errors?.githubOwner ? "Github Owner is required" : "Which Github Organization owns this project?" 
+                errors?.githubOwner
+                  ? "Github Owner is required"
+                  : "Which Github Organization owns this project?"
               }
               variant="filled"
               name="githubOwner"
@@ -55,7 +76,11 @@ export function EditFloorPlan({
               error={errors?.githubRepo}
               id="githubRepo"
               label="Github Repo"
-              helperText={errors?.githubRepo ? "githubRepo is required" : "What is the name of the Github Repo?"}
+              helperText={
+                errors?.githubRepo
+                  ? "githubRepo is required"
+                  : "What is the name of the Github Repo?"
+              }
               variant="filled"
               name="githubRepo"
               fullWidth
@@ -67,7 +92,11 @@ export function EditFloorPlan({
               error={errors?.title}
               id="title"
               label="Title"
-              helperText={errors?.title ? "Title is required" : "Display name for the project || Repo Name"}
+              helperText={
+                errors?.title
+                  ? "Title is required"
+                  : "Display name for the project || Repo Name"
+              }
               variant="filled"
               name="title"
               fullWidth
@@ -80,7 +109,9 @@ export function EditFloorPlan({
               id="description"
               label="Description"
               helperText={
-                errors?.description ? "Description is required" : "What makes this repo so great?"
+                errors?.description
+                  ? "Description is required"
+                  : "What makes this repo so great?"
               }
               variant="filled"
               name="description"
@@ -106,7 +137,9 @@ export function EditFloorPlan({
                 <MenuItem value={"$$$"}>$$$</MenuItem>
               </Select>
               <FormHelperText>
-                {errors?.cost ? "Cost is required" : "How much does this plan cost to run when starting?"}
+                {errors?.cost
+                  ? "Cost is required"
+                  : "How much does this plan cost to run when starting?"}
               </FormHelperText>
             </FormControl>
           </Box>
@@ -130,7 +163,9 @@ export function EditFloorPlan({
                 <MenuItem value={"1week"}>1week</MenuItem>
               </Select>
               <FormHelperText>
-                {errors?.setupTime ? "Setup Time is required" : "How long does it take to setup?"}
+                {errors?.setupTime
+                  ? "Setup Time is required"
+                  : "How long does it take to setup?"}
               </FormHelperText>
             </FormControl>
           </Box>
@@ -139,7 +174,11 @@ export function EditFloorPlan({
               error={errors?.tags}
               id="tags"
               label="Tags"
-              helperText={errors?.tags ? "tags is required" : "What are some search terms for this repo?"}
+              helperText={
+                errors?.tags
+                  ? "tags is required"
+                  : "What are some search terms for this repo?"
+              }
               variant="filled"
               name="tags"
               fullWidth

@@ -28,7 +28,7 @@ interface FloorPlanCardProps {
   setupTime: string;
   tags: string[];
   id: string;
-  userId: string;
+  userId: string | null;
 }
 
 export function FloorPlanCard({
