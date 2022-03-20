@@ -12,7 +12,6 @@ import {
   emailAndPasswordSignIn,
   emailAndPasswordSignUp,
 } from "~/firebase/auth";
-import { addAppUser } from "~/db/appUsers/appUsers.client";
 
 export const meta: MetaFunction = () => {
   return {
@@ -45,7 +44,7 @@ function validateEmail(email: unknown) {
 }
 
 function validatePassword(password: unknown) {
-  if (typeof password !== "string" || password.length < 6) {
+  if (typeof password !== "string" || password.length <= 6) {
     return `Passwords must be at least 6 characters long`;
   }
 }

@@ -62,6 +62,7 @@ export async function getFilteredFloorPlans({
         .split(" ")
         .filter((word) => word.length > 1)
         .slice(0, 9)
+        .map((word) => word.toLowerCase())
     ) as Query<FloorPlan>;
   }
   const querySnapshot = await queryRef.get();
@@ -85,8 +86,8 @@ export async function getFloorPlan(
 export async function addFloorPlan(floorPlan: FloorPlan): Promise<FloorPlan> {
   try {
     const queryList = [
-      ...floorPlan.title.split(" ").filter((word) => word.length > 1),
-      ...floorPlan.tags.filter((word) => word.length > 1),
+      ...floorPlan.title.split(" ").filter((word) => word.length > 1).map((word) => word.toLowerCase()),
+      ...floorPlan.tags.filter((word) => word.length > 1).map((word) => word.toLowerCase()),
     ];
     floorPlan.queryList = queryList;
     const docRef = await getCollectionRef().add(floorPlan);
@@ -102,11 +103,14 @@ export async function addFloorPlan(floorPlan: FloorPlan): Promise<FloorPlan> {
   }
 }
 
-export async function setFloorPlan(floorPlanId:string, floorPlan: FloorPlan): Promise<FloorPlan> {
+export async function setFloorPlan(
+  floorPlanId: string,
+  floorPlan: FloorPlan
+): Promise<FloorPlan> {
   try {
     const queryList = [
-      ...floorPlan.title.split(" ").filter((word) => word.length > 1),
-      ...floorPlan.tags.filter((word) => word.length > 1),
+      ...floorPlan.title.split(" ").filter((word) => word.length > 1).map((word) => word.toLowerCase()),
+      ...floorPlan.tags.filter((word) => word.length > 1).map((word) => word.toLowerCase()),
     ];
     floorPlan.queryList = queryList;
     await getDocReference(floorPlanId).set(floorPlan);
