@@ -187,7 +187,7 @@ export function EditFloorPlan({
           </Box>
           <Box>
             <Button type="submit" variant="contained" fullWidth>
-              Create Floor Plan
+              {isCreate ? "Create Floor Plan" : "Update Floor Plan"}
             </Button>
           </Box>
         </Stack>
