@@ -1,11 +1,9 @@
 import { getApps, initializeApp } from "firebase/app";
 import { connectAuthEmulator, getAuth } from "firebase/auth";
 import { getAnalytics, logEvent } from "firebase/analytics";
-
-const analytics = getAnalytics();
 import { connectFirestoreEmulator, getFirestore } from "firebase/firestore";
 
-let app, auth, db;
+let app, auth, db, analytics;
 
 if (!getApps().length) {
   const firebaseConfig = {
@@ -21,10 +19,22 @@ if (!getApps().length) {
   app = initializeApp(firebaseConfig);
   auth = getAuth();
   db = getFirestore();
+  if (typeof document !== "undefined") {
+    analytics = getAnalytics();
+  }
   if (process.env.NODE_ENV === "development") {
     connectFirestoreEmulator(db, "localhost", 8080);
     connectAuthEmulator(auth, "http://localhost:9099");
   }
 }
 
-export { app, auth, db, analytics, getAuth, getFirestore, getAnalytics, logEvent };
+export {
+  app,
+  auth,
+  db,
+  analytics,
+  getAuth,
+  getFirestore,
+  getAnalytics,
+  logEvent,
+};
