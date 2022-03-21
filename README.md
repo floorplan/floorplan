@@ -1,5 +1,7 @@
 # Welcome to Floorplan!
 
+> [Watch this video to learn more and follow along](https://www.youtube.com/watch?v=f5VrDlkypNU)
+
 ## Why?
 
 > The app framework that no one asked for but that we all deserve.
@@ -37,7 +39,7 @@ npm i
 
 Now most dev environmenst would be ready to go but first we need to setup a firebase console app so we can do all the things.
 
-> TODO: add url to youtube video that we are making right now.
+[Follow this youtube video for these steps.](https://www.youtube.com/watch?v=f5VrDlkypNU)
 
 Once you have it all setup get the service account prive key json file and add it to the root of the project and call the file `firebaseAccess.json`. This file is ignored by git and we will use it to create the .env file.
 
